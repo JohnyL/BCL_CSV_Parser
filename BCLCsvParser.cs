@@ -1,6 +1,5 @@
 using Microsoft.VisualBasic.FileIO;
 
-
 var csv = """
   1;2;3
   4;5;6
@@ -8,6 +7,7 @@ var csv = """
 
 using var strrd = new StringReader(csv);
 var parser = new TextFieldParser(strrd);
+parser.TextFieldType = FieldType.Delimited;
 parser.Delimiters = new[] { ";" };
 var i = 0;
 while (!parser.EndOfData)
